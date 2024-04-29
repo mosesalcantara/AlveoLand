@@ -1,0 +1,27 @@
+.property_view {
+    background-color: white;
+    height: 89vh;
+    width: 100vw;
+}
+
+#carouselExampleAutoplaying {
+    height: 650px;
+    width: 100%;
+}
+
+.property_images {
+    height: 650px;
+
+}
+
+.property_content {
+    height: 650px;
+    overflow-y: auto;
+    padding-bottom: 5rem;
+}
+
+.carousel-item img {
+    height: 650px;
+    width: 100%;
+    background-size: cover;
+}
