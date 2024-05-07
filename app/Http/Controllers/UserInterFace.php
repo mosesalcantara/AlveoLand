@@ -141,21 +141,13 @@ class UserInterFace extends Controller
 
     public function Projects()
     {
-
-
-        $obj = projects::select('city', 'id')->orderBy('city', 'asc')
-            ->get();
-        $count = count($obj);
-        if ($count > 0) {
-            return response()->json(['status' => 200, 'city' => $obj]);
-        } else {
-            return response()->json(['status' => 400, 'message' => 'No results found']);
-        }
+        $obj = project_properties::all();
+        return response()->json($obj);
     }
     public function SelectProjectsData($city)
     {
         try {
-            $projects = projects::where('city', $city)->get();
+            $projects = project_properties::where('city', $city)->get();
             $count = count($projects);
 
             if ($count > 0) {
@@ -389,6 +381,85 @@ class UserInterFace extends Controller
             return response()->json(['status' => 200, 'message' => 'Results found', 'unit' => $unit]);
         } else {
             return response()->json(['status' => 400, 'message' => 'Results found', 'unit' => $unit]);
+        }
+    }
+
+
+
+    public function City_Property($location)
+    {
+        $projects = project_properties::select('project_name', 'project_logo')->where('city', $location)->get();
+        $units =
+            project_properties::join('project_units', 'project_properties.id', '=', 'project_properties_id')->select('project_properties.id as project_id', 'project_properties.project_name', 'project_properties.city', 'project_units.*')->get();
+
+        return response()->json(['project' => $projects, 'units' => $units]);
+    }
+    public function Search_Sale(Request $request)
+    {
+        $category = $request->category;
+        $type = $request->type;
+        $city = $request->city;
+        $units =
+            project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->select('project_properties.id as project_id', 'project_properties.project_name', 'project_properties.city', 'project_units.*')->where('project_units.project_unit_category_type', "Sale");
+        if (!$category == null && $type == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->get();
+            return response()->json($result);
+        } else if (!$type == null) {
+            $result = $units->where('project_units.project_unit_type', $type)->get();
+            return response()->json($result);
+        } else if (!$city == null) {
+            $result = $units->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$category == null && $type == null && $city == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_units.project_unit_type', $type)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$category == null && $type == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_units.project_unit_type', $type)->get();
+            return response()->json($result);
+        } else if (!$category == null  && $city == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$type == null && $city == null) {
+            $result = $units->where('project_units.project_unit_type', $type)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if ($category == null && $type == null & $city == null) {
+            $units =
+                project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where('project_units.project_unit_category_type', 'Sale')->select('project_properties.city', 'project_units.*')->get();
+            return response()->json($units);
+        }
+    }
+    public function Search_Lease(Request $request)
+    {
+        $category = $request->category;
+        $type = $request->type;
+        $city = $request->city;
+        $units =
+            project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->select('project_properties.id as project_id', 'project_properties.project_name', 'project_properties.city', 'project_units.*')->where('project_units.project_unit_category_type', "Lease");
+        if (!$category == null && $type == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->get();
+            return response()->json($result);
+        } else if (!$type == null) {
+            $result = $units->where('project_units.project_unit_type', $type)->get();
+            return response()->json($result);
+        } else if (!$city == null) {
+            $result = $units->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$category == null && $type == null && $city == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_units.project_unit_type', $type)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$category == null && $type == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_units.project_unit_type', $type)->get();
+            return response()->json($result);
+        } else if (!$category == null  && $city == null) {
+            $result = $units->where('project_units.project_unit_category_description', $category)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if (!$type == null && $city == null) {
+            $result = $units->where('project_units.project_unit_type', $type)->where('project_properties.city', $city)->get();
+            return response()->json($result);
+        } else if ($category == null && $type == null & $city == null) {
+            $units =
+                project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where('project_units.project_unit_category_type', 'Lease')->select('project_properties.city', 'project_units.*')->get();
+            return response()->json($units);
         }
     }
 }

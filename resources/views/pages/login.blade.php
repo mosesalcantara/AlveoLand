@@ -19,6 +19,7 @@
                 <div class="card-body">
                     <form id="login-account" enctype="multipart/form-data">
                         @csrf
+                        <img src="/static/alveo.svg" height="40" alt="">
                         <h6 class="text-primary">Greetings!</h6>
                         <p>Welcome to Alveo, please login your account to get in touch. Thank you</p>
                         <h5 class="text-primary">

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
@@ -176,7 +177,7 @@
         </div>
     </div>
 
-    <div id="navbar" class="navbar py-2 w-100 ">
+    <div id="navbar" class="navbar  w-100 ">
 
         <button type="button" id="openNavigationMenu" class="btn d-sm-block d-lg-none text-white"><i
                 class="fa-solid fa-bars"></i></button>
@@ -291,6 +292,7 @@
             @yield('about')
             @yield('lease')
             @yield('sale')
+            @yield('locations')
             @yield('viwe_units_data')
             @yield('user_projects')
             @yield('project_units')
@@ -316,7 +318,6 @@
 
         @include('pages.chat')
         <script src="{{ asset('js/user/index.js') }}"></script>
-        <script src="{{ asset('js/user/location.js') }}"></script>
         <script src="{{ asset('js/user/logo.js') }}"></script>
         <script src="{{ asset('js/user/search.js') }}"></script>
         <script src="{{ asset('js/user/calculator.js') }}"></script>
@@ -352,13 +353,9 @@
 
                 });
                 tagline()
-                // property_cards()
                 LocationsList()
-                LocationReloader()
+                EventsLocation();
 
-                viewlogo()
-
-                // $('#loader').fadeIn(3000)
 
 
 

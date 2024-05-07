@@ -2,7 +2,7 @@
 @section('title', 'Alveo')
 @section('index')
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-    <div class="ps-lg-5 position-fixed">
+    <div class="ps-lg-5 ">
         <div class="bg-light rounded-bottom">
             <div class="row pt-5"></div>
             <div class="row ps-5 index-size">
@@ -10,11 +10,71 @@
                     <div class="d-sm-flex d-lg-block justify-content-center">
                         <img src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30" alt="">
                     </div>
-                    <div class="lh-1">
+                    <div class="lh-1 d-sm-none d-lg-block">
                         <p style="font-size:4rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
                                 live</span></p>
                     </div>
-                    <form id="index_search_properties_available">
+                    <div class="lh-1 d-lg-none text-center">
+                        <p style="font-size:2rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
+                                live</span></p>
+                    </div>
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3 d-lg-none">
+                        <div class="carousel-inner">
+                            @if ($status == 200)
+                                @foreach ($projects as $project)
+                                    @php
+                                        $active = '';
+                                        if ($projects[0]) {
+                                            $active = 'active';
+                                        } else {
+                                            $active = '';
+                                        }
+                                    @endphp
+                                    <div data-id="{{ $project->id }}"
+                                        class="display-units carousel-item {{ $active }}"
+                                        style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.9), rgba(255, 255, 255, 0.001)), url("{{ asset('project/snapshots') }}/{{ $project->project_banner }}");
+                                                                height:25rem; background-size:cover;'>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <h1><span class="bg-light rounded-end  px-5 py-2"><i
+                                                    class="fa-solid fa-location-dot text-danger"></i>
+                                                {{ $project->city }}</span></h1>
+                                        <div class="featured-property-name  text-center text-light py-2 h5">
+                                            {{ $project->project_name }}
+                                        </div>
+
+                                    </div>
+                                @endforeach
+
+                            @endif
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    {{-- <form id="index_search_properties_available"> --}}
+                    <form>
                         @csrf
                         <div class="bg-none">
                             <div
@@ -77,7 +137,8 @@
                                     <a class="indicator" href="#featureCarousel" role="button" data-bs-slide="prev">
                                         <i class="fa-solid fa-less-than"></i>
                                     </a> &nbsp;&nbsp;
-                                    <a class="w-aut indicator" href="#featureCarousel" role="button" data-bs-slide="next">
+                                    <a class="w-aut indicator" href="#featureCarousel" role="button"
+                                        data-bs-slide="next">
                                         <i class="fa-solid fa-greater-than"></i>
                                     </a>
                                 </div>
@@ -96,11 +157,12 @@
                                             <div class=" carousel-item {{ $active }}">
                                                 <div class="col-md-4">
                                                     <div data-id="{{ $project->id }}"
-                                                        class="card display-units  rounded-2 property-view-btn"
+                                                        class="card display-units  rounded-2 "
                                                         style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.7), rgba(255, 255, 255, 0.001)), url("{{ asset('project/snapshots') }}/{{ $project->project_banner }}");
                                                                 height:25rem; background-size:cover;'>
 
-                                                        <div class="featured-city bg-light rounded-end px-3 py-2 h5">
+                                                        <div class="featured-city bg-light rounded-end px-3 py-2 h5"> <i
+                                                                class="fa-solid fa-location-dot text-danger"></i>
                                                             {{ $project->city }}
                                                         </div>
                                                         <div

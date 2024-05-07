@@ -6,23 +6,11 @@
     </div>
     <div class="row"></div>
 
-    <div class="table-submitted-properties-container bg-light shadow-sm p-3 overflow-x-auto">
+    <div class="table-pending-properties-container bg-light shadow-sm p-3 overflow-x-auto">
 
     </div>
-    @include('admin.modals.inquiry')
+    @include('admin.modals.modals')
 
-    <script src="{{ asset('js/admin/submitted.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-
-            Display_Submitted_Properties()
-            // Inquiry_Event()
-        });
-    </script>
+    <script src="{{ asset('js/admin/client.js') }}"></script>
+    <script></script>
 @endsection

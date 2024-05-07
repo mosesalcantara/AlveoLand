@@ -263,3 +263,55 @@ function featuredProperties() {
         },
     });
 }
+function EventsLocation() {
+    $(document).on("click", ".locations-properties-btn", function (e) {
+        e.preventDefault();
+        var data = $(this).data("value");
+        localStorage.setItem("active-location", JSON.stringify(data));
+        var active_location = JSON.parse(
+            localStorage.getItem("active-location")
+        );
+        window.location.href = "/our-properties/locations";
+        console.log(active_location);
+    });
+}
+
+function LocationsList() {
+    var spinner =
+        "<div class='location-spinner text-center'><span class=''><div class='spinner-border text - primary' role='status'></div ></span></div>";
+    $(".locations-city-list").append(spinner);
+    $.ajax({
+        type: "GET",
+        url: "/our-properties/locations/list",
+        data: "data",
+        dataType: "json",
+        success: function (response) {
+            // console.log(response);
+            if (response.status == 200) {
+                $(".location-spinner").addClass("d-none");
+                $.each(response.locations, function (index, data) {
+                    var list = `<li><button type='button' data-value='${index}' class='dropdown-item locations-properties-btn'> <span class='me-3'><i class='fa-solid fa-location-dot'></i></span>${index}</button></li>`;
+                    $(".locations-city-list").append(list);
+                });
+            } else {
+                $(".location-spinner").addClass("d-none");
+            }
+
+            if (response.status == 200) {
+                // $(".location-spinner").addClass("d-none");
+                var select = $(".location-select");
+                select.append("<option selected>Choose Location</option>");
+                $.each(response.locations, function (index, data) {
+                    var opt = $("<option>");
+                    opt.text(index);
+                    opt.val(index);
+                    select.append(opt);
+                });
+            }
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.reponseTxt);
+        },
+    });
+}

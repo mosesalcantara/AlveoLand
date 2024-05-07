@@ -71,10 +71,16 @@ Route::get('/admin/pages/integrations', [Routing::class, 'Integrations']);
 Route::get('/projects', [Routing::class, 'All_Projects']);
 Route::get('/our-properties/lease', [Routing::class, 'Lease']);
 Route::get('/our-properties/sale', [Routing::class, 'Sale']);
+Route::get('/our-properties/locations', [Routing::class, 'Location']);
+Route::get('/our-properties/city/{location}', [UserInterFace::class, 'City_Property']);
+Route::post('/search-sale', [UserInterFace::class, 'Search_Sale']);
+Route::post('/search-lease', [UserInterFace::class, 'Search_Lease']);
 
 
 Route::get('/admin/property/index', [Routing::class, 'Property_Main']);
 Route::get('/admin/property/gallery', [Routing::class, 'Gallery']);
+Route::get('/admin/clients', [Client_Controller::class, 'GetAllRequest']);
+Route::get('/admin/clients/{id}', [Client_Controller::class, 'GetPropertyDetails']);
 
 
 
@@ -156,9 +162,7 @@ Route::get('/about', [Routing::class, 'User_About']);
 
 Route::get('/our-properties/lease/data', [UserInterFace::class, 'LeaseUnits']);
 Route::get('/our-properties/sale/data', [UserInterFace::class, 'SaleUnits']);
-// Route::get('/our-properties/lease/commercial/data', [UserInterFace::class, 'LeaseUnitsCommercial']);
-// Route::get('/our-properties/lease/residential/data', [UserInterFace::class, 'LeaseUnitsResidential']);
-// Route::get('/our-properties/lease/commercial/data/{rental}', [UserInterFace::class, 'LeaseUnitsCommercialRentals']);
+
 Route::get('/our-properties/lease/locations', [UserInterFace::class, 'Location_list']);
 Route::get('our-properties/lease/data/view/unit/{id}', [UserInterFace::class, 'ShowLeaseUnitData']);
 Route::post('/our-properties/lease/search-property', [UserInterFace::class, 'SearchLeaseUnits']);
@@ -184,7 +188,6 @@ Route::post('/submit-client-property', [Client_Controller::class, 'Submit_Proper
 
 Route::get('/all-project-properties', [UserInterFace::class, 'All_Project_Properties']);
 
-// Route::post('/send-chat-bot-message', [ChatBot::class, 'AskBot']);
 
 
 

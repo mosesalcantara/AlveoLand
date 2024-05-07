@@ -51,7 +51,7 @@
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <span class="fs-3 text-white">WHAT WE DO</span><br>
-                <span id="company-do-content" class="fs-4 fw-light text-white">
+                <span id="company-do-content" class="fs-4 fw-light text-white lh-1">
 
                 </span>
             </div>
@@ -123,7 +123,7 @@
 
 
 
-    <div id="company-project-portfolio" class=" bg-secondary p-lg-5 p-sm-3">
+    {{-- <div id="company-project-portfolio" class=" bg-secondary p-lg-5 p-sm-3">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
@@ -145,7 +145,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script src="{{ asset('/js/user/about.js') }}"></script>
     <script>

@@ -476,3 +476,20 @@
 
     </div>
 </div>
+<div class="modal fade" id="submitted-property-modal" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content rounded-0">
+
+            <div class="modal-header border-0">
+                <h4><span><i class="fa-solid fa-user"></i></span> Submitted Properties</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-auto" id="client-details">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

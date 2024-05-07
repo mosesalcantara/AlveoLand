@@ -192,10 +192,9 @@ function Projects() {
     $.ajax({
         type: "GET",
         url: "/company-projects",
-        data: "data",
-        dataType: "json",
         success: function (response) {
-            if (response.status == 200) {
+            console.log(response);
+            if (response.length > 0) {
                 $.each(response.city, function (index, data) {
                     if (index === 0) {
                         var data =
@@ -218,7 +217,7 @@ function Projects() {
                     }
                 });
                 $("#company-project-portfolio").removeClass("d-none");
-            } else if (response.status == 400) {
+            } else {
                 $("#company-project-portfolio").addClass("d-none");
             }
         },

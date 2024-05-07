@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary mb-2" id="add-awards-btn">Add Projects</button>
+                            <button type="button" class="btn btn-primary mb-2" id="add-awards-btn">Add Awards</button>
                         </div>
                     </div>
                 </div>

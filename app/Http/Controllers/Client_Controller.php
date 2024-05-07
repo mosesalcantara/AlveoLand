@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\client;
+use App\Models\images;
 use App\Models\submitted_property;
 use App\Models\submitted_property_images;
 use Illuminate\Http\Request;
@@ -83,5 +84,16 @@ class Client_Controller extends Controller
         } else {
             return response()->json(['status' => 400, 'message' => 'Apologies for the inconvenience. Please try again.']);
         }
+    }
+    public function GetAllRequest()
+    {
+        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('submitted_property.cstatus', 'Pending')->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->get();
+        return response()->json(['properties' => $result]);
+    }
+    public function GetPropertyDetails($id)
+    {
+        $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('client.id', $id)->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->first();
+        $result['images'] = submitted_property_images::where('submitted_property_id', $result->submitted_id)->get();
+        return response()->json($result);
     }
 }

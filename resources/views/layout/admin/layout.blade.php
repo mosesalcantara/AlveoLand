@@ -53,7 +53,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link">
+            <a href="#" class="brand-link text-center pb-5 pt-5">
+                <img src="/static/alveo.svg" height="40" alt="">
 
             </a>
 
@@ -158,10 +159,10 @@
 
 
                         <li class="nav-item">
-                            <a href="{{ '/admin/pages/integrations' }}"
-                                class="nav-link {{ Request::url() == url('/admin/pages/integrations') ? 'active' : '' }}">
-                                <i class="nav-icon fa-brands fa-stack-overflow"></i>
-                                <p>Settings</p>
+                            <a href="{{ '/logout' }}"
+                                class="nav-link {{ Request::url() == url('/logout') ? 'active' : '' }}">
+                                <i class="fa-solid fa-right-from-bracket nav-icon"></i>
+                                <p>Logout</p>
 
                             </a>
                         </li>

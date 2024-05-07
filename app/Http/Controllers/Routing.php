@@ -114,9 +114,9 @@ class Routing extends Controller
         return view('admin.pages.gallery');
     }
 
-    public function Locations()
+    public function Location()
     {
-        return view('admin.pages.locations');
+        return view('pages.locations');
     }
     public function Integrations()
     {
