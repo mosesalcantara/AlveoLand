@@ -42,7 +42,7 @@ class SaleOptions extends Conversation
                 
                         $sale_units = project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where($where)->orderBy('project_properties.project_name')->limit(10)->get();
                         foreach ($sale_units as $sale_unit) {
-                            $reply .= "<p>$sale_unit->project_name - $sale_unit->project_unit_no</p><br>";
+                            $reply .= "<p>$sale_unit->project_name - $sale_unit->project_unit_no</p>>";
                         }
             
                         $this->bot->reply($reply);
@@ -58,7 +58,7 @@ class SaleOptions extends Conversation
                 
                         $sale_units = project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where($where)->orderBy('project_properties.project_name')->limit(10)->get();
                         foreach ($sale_units as $sale_unit) {
-                            $reply .= "<p>$sale_unit->project_name - $sale_unit->project_unit_no</p><br>";
+                            $reply .= "<p>$sale_unit->project_name - $sale_unit->project_unit_no</p>";
                         }
             
                         $this->bot->reply($reply);
