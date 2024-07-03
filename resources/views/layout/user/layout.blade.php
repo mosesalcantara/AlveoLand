@@ -10,12 +10,11 @@
     <title>@yield('title')</title>
 
     </title>
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/user/index.js') }}"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" />
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
@@ -46,7 +45,7 @@
             </div>
             <form id="calculator-form" class="">
                 <h3 class="text-dark">Housing Loan Calculator</h3>
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-12">
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control loan-selling-price" id="floatingInput"
@@ -69,13 +68,24 @@
                         </div>
 
                     </div>
-                    <div class="col-6">
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control loan-interest-rate" id="floatingInput"
-                                placeholder="name@example.com">
-                            <label for="floatingInput">Interst Rate</label>
-                        </div>
 
+                    <div class="col-6">
+                        <div class="form-floating w-100">
+                            <select class="form-select loan-interest-rate" id="floatingSelect"
+                                aria-label="Floating label select example">
+                                <option selected>Choose</option>
+                                <option value="6">6%</option>
+                                <option value="7">7%</option>
+                                <option value="8">8%</option>
+                                <option value="9">9%</option>
+                                <option value="10">10%</option>
+                                <option value="11">11%</option>
+                                <option value="12">12%</option>
+                                <option value="13">13%</option>
+                                <option value="14">14%</option>
+                            </select>
+                            <label for="floatingSelect">Interest Rate</label>
+                        </div>
                     </div>
 
                 </div>
@@ -199,12 +209,6 @@
                     <div>
                         <a href="{{ '/our-properties/lease' }}" class="btn text-light">FOR LEASE</a>
                     </div>
-
-                    <div class="dropdown">
-                        <button class="btn text-light btn text-light rounded-0 dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">LOCATIONS</button>
-                        <ul class="dropdown-menu rounded-0 locations-city-list"></ul>
-                    </div>
                     <div class="dropdown">
                         <button class="btn text-light rounded-0 dropdown-toggle" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
@@ -229,12 +233,12 @@
             </div>
         </div>
 
-        <div class="d-lg-none d-sm-none text-center">
+        <div class="d-lg-none d-none text-center">
             <a href="{{ url('/') }}" class="text-decoration-none"><img src="/static/ALVEO.svg" alt=""
                     height="20"></a>
         </div>
 
-        <div class="w-100 d-sm-none d-lg-flex align-items-center justify-content-center">
+        <div class="w-100 d-none d-lg-flex align-items-center justify-content-center">
             <div>
                 <a href="{{ url('/') }}" class="text-decoration-none text-light me-5 fs-3 fw-bold"><img
                         src="/static/ALVEO.svg" alt="" height="20"></a>
@@ -242,10 +246,6 @@
             <div>
                 <a href="{{ '/about' }}"
                     class="btn text-light {{ Request::url() == url('/about') ? 'active' : '' }}">ABOUT US</a>
-            </div>
-            <div>
-                <a href="{{ '/projects' }}"
-                    class="btn text-light {{ Request::url() == url('/projects') ? 'active' : '' }}">PROJECTS</a>
             </div>
             <div>
                 <a href="{{ '/our-properties/sale' }}"
@@ -258,25 +258,27 @@
                     LEASE</a>
             </div>
             <div class="dropdown">
-                <button
-                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/property-locations') ? 'active' : '' }}"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">LOCATIONS</button>
-                <ul class="dropdown-menu rounded-0 locations-city-list"></ul>
+                <button class="btn text-light rounded-0 dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
+                <ul class="dropdown-menu rounded-0">
+
+                    <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span><i
+                                    class="me-2 fa-solid fa-message"></i></span><span>Send us a
+                                message</span></a></li>
+                </ul>
             </div>
             <div class="dropdown">
                 <button
-                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/send-property') ? 'active' : '' }}  {{ Request::url() == url('/inquiry') ? 'active' : '' }} "
+                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/send-property') ? 'active' : '' }} "
                     type="button" data-bs-toggle="dropdown" aria-expanded="false">OTHERS </button>
                 <ul class="dropdown-menu rounded-0">
-                    <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span class=""><i
-                                    class="me-2 fa-solid fa-message"></i></span><span>Send us a message</span></a></li>
                     <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
                             class="btn text-light"><span class="me-2"><i
                                     class="fa-solid fa-calculator"></i></span><span>Loan
                                 Calculator</span></a></li>
 
-                    <li><a class="dropdown-item" href="{{ '/send-property' }}""><span class="me-2"><i
+                    <li><a class="dropdown-item" href="{{ '/send-property' }}"><span class="me-2"><i
                                     class="fa-solid fa-paper-plane"></i></span><span>Submit Property</span></a></li>
                 </ul>
             </div>
@@ -285,7 +287,6 @@
 
             </div>
         </div>
-
 
         <div class="section" id="section">
             @yield('index')
@@ -304,6 +305,77 @@
             @yield('schedule_viewing')
         </div>
 
+        <div class="container-fluid mt-5 py-4 px-5 footer">
+            <div class="row w-100">
+                <div class="col-xxl-3">
+                    <h2>Quick Links</h2>
+                    <div class="row links">
+                        <div class="col-xxl-6">
+                            <div>
+                                <a href="{{ '/' }}" class="btn text-light">Home</a>
+                            </div>
+                            <div>
+                                <a href="{{ '/about' }}" class="btn text-light">About Us</a>
+                            </div>
+                            <div>
+                                <a href="{{ '/inquiry' }}" class="btn text-light">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6">
+                            <div>
+                                <a href="{{ '/our-properties/sale' }}" class="btn text-light">For Sale</a>
+                            </div>
+                            <div>
+                                <a href="{{ '/our-properties/lease' }}" class="btn text-light">For Lease</a>
+                            </div>
+                            <div>
+                                <a href="{{ '/send-property' }}" class="btn text-light">Submit Property</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 offset-xxl-1">
+                    <h2 class="mb-3">Talk With Us</h2>
+                    <h5 class="mb-3 office">
+                        ALVEO Corporate Center
+                        728 28th Street, Bonifacio Global City
+                        1634 Taguig City, Metro Manila, Philippines
+                    </h5>
+                    <div class="row contacts">
+                        <div class="col-xxl-6">
+                            <h6 onclick="window.location='https://www.facebook.com/messages/t/157361091935'">
+                                <i class="me-2 fa-brands fa-facebook-messenger"></i>
+                                Alveo Land Corp
+                            </h6>
+                        </div>
+                        <div class="col-xxl-6">
+                            <h6 onclick="window.location='tel:09108707822'">
+                                <i class="me-2 fa-solid fa-phone"></i>
+                                09108707822
+                            </h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xxl-4 offset-xxl-1 about">
+                    <h2 class="mb-3">About Us</h2>
+
+                    <h5>
+                        Alveo Land is one of the Philippines’ leading real estate developers A subsidiary of Ayala Land, 
+                        Alveo offers a vibrant portfolio of groundbreaking real estate developments that 
+                        provides upscale living and working spaces within various thriving and emerging growth centers around the country.
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="w-100 row">
+                <div class="col text-center text-light mt-3">
+                    <h6>© ALVEO LAND CORP</h6>
+                </div>
+            </div>
+        </div>
+
         <div class="toast-container position-fixed top-0 end-0 p-3">
             <div id="toasMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -316,7 +388,20 @@
             </div>
         </div>
 
-        @include('pages.chat')
+
+
+        <script>
+            var botmanWidget = {
+                aboutText: 'Start the conversation with Hi',
+                introMessage: "Welcome to Alveo Land Corp. <br><br> Start the conversation with Hi.",
+                mainColor: "rgb(23, 147, 255)",
+                bubbleBackground: "rgb(23, 147, 255)",
+            };
+        </script>
+
+        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+        {{-- @include('pages.chat') --}}
         <script src="{{ asset('js/user/index.js') }}"></script>
         <script src="{{ asset('js/user/logo.js') }}"></script>
         <script src="{{ asset('js/user/search.js') }}"></script>

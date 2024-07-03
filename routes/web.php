@@ -3,6 +3,7 @@
 use App\Http\Controllers\About;
 use App\Http\Controllers\auth;
 use App\Http\Controllers\Awards;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\ChatBot;
 use App\Http\Controllers\Client_Controller;
 use App\Http\Controllers\Dashboard;
@@ -27,7 +28,7 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
 Route::get('/', function () {
     return view('welcome');

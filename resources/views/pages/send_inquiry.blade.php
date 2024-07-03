@@ -56,7 +56,7 @@
                                                         <div class="form-floating mb-3">
                                                             <input type="text" name="l_name" class="form-control"
                                                                 id="floatingInput" placeholder="name@example.com">
-                                                            <label for="floatingInput">First Name</label>
+                                                            <label for="floatingInput">Last Name</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-2">

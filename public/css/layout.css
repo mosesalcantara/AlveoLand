@@ -24,8 +24,33 @@ body {
     color: white;
 }
 
-#shedule-view {
+.footer {
+    background: rgb(23, 147, 255);
+    height: auto;
+    color: white;
 }
+
+.links a {
+    font-size: 1.3rem;
+}
+
+.office {
+    text-align: justify;
+}
+
+.contacts h6 {
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.about h5 {
+    text-align: justify
+}
+
+#botmanWidgetRoot>div>div>div:nth-child(1) {
+    color: white !important;
+}
+
 /* .offcanvas-header {
     background: rgb(216, 69, 69);
 } */

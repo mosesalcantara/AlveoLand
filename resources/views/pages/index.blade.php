@@ -125,7 +125,7 @@
                             Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                             groundbreaking living solutions.
                         </p>
-                        <a class="btn text-primary fs-6" href="">Find out more</a>
+                        <a class="btn text-primary fs-6" href="/about">Find out more</a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-12 d-lg-block d-sm-none">
@@ -186,18 +186,7 @@
                     Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                     groundbreaking living solutions.
                 </p>
-                <a class="btn text-primary fs-6" href="">Find out more</a>
-            </div>
-            <div class="d-flex justify-content-center-sm">
-                <div class="">
-                    <a href="" class="text-dark btn">Privacy</a>
-                </div>
-                <div class="">
-                    <a href="" class="text-dark btn">Terms and Condition</a>
-                </div>
-                <div class="">
-                    <a href="" class="text-dark btn">Property Listing</a>
-                </div>
+                <a class="btn text-primary fs-6" href="/about">Find out more</a>
             </div>
         </div>
     </div>
