@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <script src="https://kit.fontawesome.com/a051b84b57.js" crossorigin="anonymous"></script>
-
-
-
 </head>
 
 <body>
@@ -150,41 +147,6 @@
 
         </div>
     </div>
-    <div class="bg-light text-end px-3">
-        <small>Here is where you can reach us!</small>
-    </div>
-    <div class="top-navbar pt-1 lh-2 text-center">
-        <div class="d-flex justify-content-center align-items-center">
-            <a href="#" class="me-2 nav-link  ">
-                <abbr title="Viber">
-                    <h5><i class="me-2 fa-brands fa-viber"></i></h5>
-                </abbr>
-            </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Whatsapp">
-                    <h5><i class="fa-brands fa-whatsapp"></i></h5>
-                </abbr>
-            </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Telegram">
-                    <h5><i class="me-2 fa-brands fa-telegram"></i></h5>
-                </abbr>
-            </a>
-            <a href="tel:09108707822" class="me-2 nav-link ">
-                <abbr title="Call Us">
-                    <h5><i class="me-2 fa-solid fa-phone"></i></h5>
-                </abbr>
-            </a>
-            <a href="" class="me-2 nav-link ">
-                <abbr title="Messenger">
-                    <h5><i class="me-2 fa-brands fa-facebook-messenger"></i></h5>
-                </abbr>
-            </a>
-
-        </div>
-        <div class="">
-        </div>
-    </div>
 
     <div id="navbar" class="navbar  w-100 ">
 
@@ -208,6 +170,13 @@
                     <div>
                         <a href="{{ '/our-properties/lease' }}" class="btn text-light">FOR LEASE</a>
                     </div>
+                    <div>
+                        <a href="{{ '/send-property' }}" class="btn text-light">SUBMIT PROPERTY</a>
+                    </div>
+                    <div>
+                        <a href="" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+                        aria-controls="staticBackdrop" class="btn text-light">LOAN CALCULATOR</a>
+                    </div>
                     <div class="dropdown">
                         <button class="btn text-light rounded-0 dropdown-toggle" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
@@ -218,16 +187,6 @@
                                         message</span></a></li>
                         </ul>
                     </div>
-                    <div>
-                        <a href="{{ '/send-property' }}" class="btn text-light">SUBMIT PROPERTY</a>
-                    </div>
-                    <div>
-                        <a href="{{ '/schedule-viewing' }}" class="btn text-light">SCHEDULE A VIEWING</a>
-                    </div>
-                    <div>
-                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
-                            aria-controls="staticBackdrop" class="btn text-light">LOAN CALCULATOR</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -237,50 +196,65 @@
                     height="20"></a>
         </div>
 
-        <div class="w-100 d-none d-lg-flex align-items-center justify-content-center">
-            <div>
+        <div class="row w-100 d-none d-lg-flex align-items-center">
+            <div class="col-xxl-2 d-flex justify-content-center">
                 <a href="{{ url('/') }}" class="text-decoration-none text-light me-5 fs-3 fw-bold"><img
                         src="/static/ALVEO.svg" alt="" height="20"></a>
             </div>
-            <div>
-                <a href="{{ '/about' }}"
-                    class="btn text-light {{ Request::url() == url('/about') ? 'active' : '' }}">ABOUT US</a>
+            <div class="col-xxl-8 d-flex justify-content-center nav-links">
+                    <a href="{{ '/about' }}"
+                        class="btn text-light {{ Request::url() == url('/about') ? 'active' : '' }}">ABOUT US</a>
+                    <a href="{{ '/our-properties/sale' }}"
+                        class="btn text-light {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}">FOR
+                        SALE</a>
+                    <a href="{{ '/our-properties/lease' }}"
+                        class="btn text-light {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}">FOR
+                        LEASE</a>
+                    <a href="{{ '/send-property' }}"
+                        class="btn text-light {{ Request::url() == url('/send-property') ? 'active' : '' }}">SUBMIT
+                        PROPERTY</a>
+                    <a href="" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+                    aria-controls="staticBackdrop" class="btn text-light">LOAN CALCULATOR</a>
+                <div class="dropdown d-inline">
+                    <button class="btn text-light rounded-0 dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
+                    <ul class="dropdown-menu rounded-0">
+    
+                        <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span><i
+                                        class="me-2 fa-solid fa-message"></i></span><span>Send us a
+                                    message</span></a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <a href="{{ '/our-properties/sale' }}"
-                    class="btn text-light {{ Request::url() == url('/our-properties/sale') ? 'active' : '' }}">FOR
-                    SALE</a>
+            <div class="col-xxl-2 d-flex justify-content-center text-light">
+                <a href="https://account.viber.com/en/login" class="me-2 nav-link  ">
+                    <abbr title="Viber">
+                        <h5><i class="me-2 fa-brands fa-viber"></i></h5>
+                    </abbr>
+                </a>
+                <a href="https://www.whatsapp.com/" class="me-2 nav-link ">
+                    <abbr title="Whatsapp">
+                        <h5><i class="fa-brands fa-whatsapp"></i></h5>
+                    </abbr>
+                </a>
+                <a href="https://web.telegram.org/" class="me-2 nav-link ">
+                    <abbr title="Telegram">
+                        <h5><i class="me-2 fa-brands fa-telegram"></i></h5>
+                    </abbr>
+                </a>
+                <a href="tel:09108707822" class="me-2 nav-link ">
+                    <abbr title="Call Us">
+                        <h5><i class="me-2 fa-solid fa-phone"></i></h5>
+                    </abbr>
+                </a>
+                <a href="https://www.facebook.com/messages/t/157361091935" class="me-2 nav-link ">
+                    <abbr title="Messenger">
+                        <h5><i class="me-2 fa-brands fa-facebook-messenger"></i></h5>
+                    </abbr>
+                </a>
             </div>
-            <div>
-                <a href="{{ '/our-properties/lease' }}"
-                    class="btn text-light {{ Request::url() == url('/our-properties/lease') ? 'active' : '' }}">FOR
-                    LEASE</a>
-            </div>
-            <div class="dropdown">
-                <button class="btn text-light rounded-0 dropdown-toggle" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">CONTACT US</button>
-                <ul class="dropdown-menu rounded-0">
 
-                    <li><a class="dropdown-item" href="{{ url('/inquiry') }}"><span><i
-                                    class="me-2 fa-solid fa-message"></i></span><span>Send us a
-                                message</span></a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button
-                    class="btn text-light rounded-0 dropdown-toggle {{ Request::url() == url('/send-property') ? 'active' : '' }} "
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">OTHERS </button>
-                <ul class="dropdown-menu rounded-0">
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
-                            class="btn text-light"><span class="me-2"><i
-                                    class="fa-solid fa-calculator"></i></span><span>Loan
-                                Calculator</span></a></li>
-
-                    <li><a class="dropdown-item" href="{{ '/send-property' }}"><span class="me-2"><i
-                                    class="fa-solid fa-paper-plane"></i></span><span>Submit Property</span></a></li>
-                </ul>
-            </div>
+            
             <div>
 
 

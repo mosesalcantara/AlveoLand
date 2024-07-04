@@ -37,7 +37,11 @@
             background-color: #888;
             /* Hover state color */
         }
+        .btn-light {
+            border-color: black;
+        }
     </style>
+
     <div id="company-objective" class="bg-light p-lg-5 px-sm-3  py-sm-5 d-none ">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
@@ -58,13 +62,13 @@
         </div>
     </div>
 
-    <div class=" bg-light p-lg-5 p-sm-3">
+    <div class="p-lg-5 p-sm-3" style="background-color: rgb(25, 69, 107)">
         <div id="company-missions" class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold  text-secondary">MISSION</span>
+                    <span class="fs-3 fw-semibold  text-light">MISSION</span>
                 </div>
-                <div id="company-mission-data" class="row">
+                <div id="company-mission-data" class="row text-light">
                 </div>
 
             </div>
@@ -75,7 +79,7 @@
         <div id="company-vision" class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold text-secondary">VISION</span>
+                    <span class="fs-3 fw-semibold text-light">VISION</span>
                 </div>
                 <div class="row">
                     <div class="col-4 px-3">
@@ -84,7 +88,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <span id="vision-content" class="fs-5 fw-lighter">
+                        <span id="vision-content" class="fs-5 fw-lighter text-light">
 
                         </span>
                     </div>
@@ -94,11 +98,11 @@
         </div>
 
     </div>
-    <div id="company-awards" class=" bg-success p-lg-5 p-sm-3">
+    <div id="company-awards" class=" bg-light p-lg-5 p-sm-3">
         <div class="container p-lg-5 p-sm-3">
             <div class="px-5">
                 <div class="py-lg-5 ">
-                    <span class="fs-3 fw-semibold text-light  ">AWARDS</span>
+                    <span class="fs-3 fw-semibold">AWARDS</span>
                 </div>
                 <div class="row">
 

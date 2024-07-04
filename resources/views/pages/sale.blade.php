@@ -1,18 +1,30 @@
 @extends('layout.user.layout')
 @section('title', 'Alveo | Sale')
 @section('sale')
+    <style>
+        .search_row {
+            background-color: rgb(23, 147, 255);
+        }
+
+        .search_row button, .search_row button:hover {
+            background-color: rgb(25, 69, 107);
+        }
+    </style>
+
     <div class="px-3 bg-light" style="height: 100vh" id="for-sale-container px-3 ">
         <div class=" pt-3 display-result">
-            <div class="d-flex justify-content-center">
-                <div class="text-center">
-                    <span class=" text-dark ">Filter Property</span>
+            <div class="container">
+                <div class="row search_row p-3 rounded-4">
                     <form id="sale-search-filter" enctype="multipart/form-data" class="d-flex align-content-center ">
-                        <select name="category">
-                            <option value="">Select Catgory</option>
+                    <div class="col-md-4 me-3">
+                        <select class="form-select" name="category">
+                            <option value="">Select Category</option>
                             <option value="RFO">RFO</option>
                             <option value="Pre-selling">Pre-selling</option>
                         </select>
-                        <select name="type">
+                    </div>
+                    <div class="col-md-3 me-3">
+                        <select class="form-select" name="type">
                             <option value="">Choose Type</option>
                             <option value="Studio">Studio</option>
                             <option value="1BR">1BR</option>
@@ -23,11 +35,16 @@
                             <option value="H&L">H&L</option>
                             <option value="Office">Office</option>
                         </select>
-                        <select name="city" class="location-select">
+                    </div>
+                    <div class="col-md-4 me-2">
+                        <select name="city" class="form-select location-select">
                         </select>
-                        <button type="submit" class="btn btn-success rounded-0 ">Filter Now</button>
-                        <button type="button" class="btn btn-primary rounded-0 reset-form-btn">Reset</button>
-
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn text-light">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -39,8 +56,6 @@
 
         </div>
     </div>
-
-
 
     <script src="{{ asset('/js/user/sale.js') }}"></script>
     <script>

@@ -165,7 +165,7 @@ function AwardsData(year) {
                     var col =
                         "<div div  class='col-lg-4 col-sm-12 mt-2 px-3' ><img class='mx-auto' src='images/" +
                         data.awards_image +
-                        "' style='height:200px;' alt='img'> <div class='border-top fw-lighter   border-2 py-3'> <span class='fs-5 text-light'>" +
+                        "' style='height:200px;' alt='img'> <div class='border-top fw-lighter   border-2 py-3'> <span class='fs-5'>" +
                         data.awards_title +
                         " </span></div></div>";
                     $("#awards-content-data").append(col);
@@ -175,7 +175,7 @@ function AwardsData(year) {
                 });
             } else if (response.status == 400) {
                 var col =
-                    "<div div  class='col-lg-4 col-sm-12 mt-2 px-3' > <div class='border-top fw-lighter  border-2 py-3'> <span class='fs-5 text-light'>" +
+                    "<div div  class='col-lg-4 col-sm-12 mt-2 px-3' > <div class='border-top fw-lighter  border-2 py-3'> <span class='fs-5'>" +
                     response.message +
                     " </span></div></div>";
 

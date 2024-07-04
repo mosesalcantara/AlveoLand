@@ -24,6 +24,10 @@ body {
     color: white;
 }
 
+.nav-links a {
+    margin-right: 1.5rem;
+}
+
 .footer {
     background: rgb(23, 147, 255);
     height: auto;

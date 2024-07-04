@@ -4,11 +4,6 @@ $(document).ready(function () {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
     });
-    $(".reset-form-btn").click(function (e) {
-        e.preventDefault();
-        $("#sale-search-filter")[0].reset();
-        Display_Project_Sale_Units();
-    });
     $(document).on("submit", "#sale-search-filter", function (e) {
         e.preventDefault();
         $("#display-project-sale-units").empty();
