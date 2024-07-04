@@ -8,7 +8,7 @@ class BotManController extends Controller
         $botman = app("botman");
 
         $botman->hears("{message}", function($botman, $message) {
-            if ($message == 'hi') {
+            if (strtolower($message) == 'hi') {
                 $botman->startConversation(new InitialOptions);
             }
         });
