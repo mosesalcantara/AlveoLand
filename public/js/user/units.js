@@ -61,8 +61,8 @@ function UnitsEvents() {
                     });
                 }
             },
-            error: function (xhr, status, error) {
-                console.error(xhr.responseTxt);
+            error: function (res) {
+                console.error(res);
             },
         });
     });

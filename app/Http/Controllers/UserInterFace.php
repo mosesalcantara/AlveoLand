@@ -35,6 +35,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
+use App\Mail\AdminViewing;
+
+use Carbon\Carbon;
+
+
 class UserInterFace extends Controller
 {
 
@@ -70,11 +75,6 @@ class UserInterFace extends Controller
             return response()->json(['status' => 400, 'message' => 'No results found']);
         }
     }
-
-
-
-
-
 
     public function Comapany_Objective()
     {
@@ -293,7 +293,21 @@ class UserInterFace extends Controller
         $visit->unit_id = $request->unit_id;
         $visit->status = 'Pending';
         $submit = $visit->save();
+
+        $unit = project_properties::join('project_units', 'project_properties.id', '=', 'project_units.project_properties_id')->where('project_units.id', $request->unit_id)->first();
+
         if ($submit) {
+            $mail_data = [
+                'name' => $request->full_name,
+                'unit_no' => $unit['project_unit_no'],
+                'property' => $unit['project_name'],
+                'date' => Carbon::parse($request->date)->toFormattedDateString(),
+                'time' => Carbon::createFromFormat('H:i', $request->time)->format('g:i a'),
+                'id' => $visit->id,
+            ];
+    
+            Mail::to('gadly.paraphraser@gmail.com')->send(new AdminViewing($mail_data));
+
             return response()->json(['status' => 200, 'message' => 'Thank you for your submission. We will promptly process your visitation request and reach out to you at the earliest convenience. Your patience is appreciated. Thank you.']);
         } else {
             return response()->json(['status' => 400, 'message' => 'Please try again ']);

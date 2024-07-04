@@ -198,6 +198,7 @@ Route::get('/completed-appointments', [Visitation::class, 'Completed_Appointment
 Route::get('/show-appoitnment-details/{id}', [Visitation::class, 'Show_Appointment_Data']);
 Route::get('/approve-appointment/{id}', [Visitation::class, 'Approve_Appointment']);
 Route::get('/decline-appointment/{id}', [Visitation::class, 'Decline_Appointment']);
+Route::get('/appointment/{status}/{id}', [Visitation::class, 'Change_Status']);
 Route::get('/complete-appointment/{id}', [Visitation::class, 'Complete_Appointment']);
 
 

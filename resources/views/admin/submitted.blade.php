@@ -2,7 +2,7 @@
 @section('title', 'Admin | Submitted Properties')
 @section('submitted')
     <div class="">
-        <p class="fw-bold text-primary">INQUIRIES</p>
+        <p class="fw-bold text-primary">CLIENTS</p>
     </div>
     <div class="row"></div>
 

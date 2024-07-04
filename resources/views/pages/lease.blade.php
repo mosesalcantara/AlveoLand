@@ -5,10 +5,6 @@
         .search_row {
             background-color: rgb(23, 147, 255);
         }
-
-        .search_row button, .search_row button:hover {
-            background-color: rgb(25, 69, 107);
-        }
     </style>
 
     <div class="px-3 bg-light" style="height: 100vh" id="for-sale-container px-3 ">
@@ -41,7 +37,7 @@
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button type="submit" class="btn text-light">
+                        <button type="submit" class="btn btn-warning text-light">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
