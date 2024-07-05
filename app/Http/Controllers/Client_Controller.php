@@ -8,6 +8,7 @@ use App\Models\submitted_property;
 use App\Models\submitted_property_images;
 use App\Models\project_properties;
 use App\Models\project_units;
+use App\Models\project_unit_snapshots;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,8 +73,8 @@ class Client_Controller extends Controller
                 DB::commit();
                 $submitted_property = submitted_property::where('client_id', $find_client->id)->first();
                 $file = $request->file('images');
-                $images = new submitted_property_images();
                 foreach ($file as $image) {
+                    $images = new submitted_property_images();
                     $ran = mt_rand(111111111, 999999999);
                     $imgname = $ran . '.' . $image->extension();
                     $image->move('submitted_properties/', $imgname);
@@ -114,11 +115,12 @@ class Client_Controller extends Controller
 
     public function ApproveSubmission($id) {
         $result = client::join('submitted_property', 'client.id', '=', 'submitted_property.client_id')->where('client.id', $id)->select('client.id as client_id', 'client.*', 'submitted_property.*', 'submitted_property.id as submitted_id', 'submitted_property.*')->first();
-        $image = submitted_property_images::where('submitted_property_id', $result->submitted_id)->first()->image_name;
+        $images = submitted_property_images::where('submitted_property_id', $result->submitted_id)->get();
 
         $unit = new project_units();
         $unit->project_properties_id = $result->property_id;
         $unit->project_unit_no = $result->cunit_no;
+        $image = $images[0]->image_name;
         $unit->project_unit_banner = $image;
         File::copy(public_path("submitted_properties/$image"), public_path("project/units/snapshots/$image"));
         $unit->project_unit_type = $result->ctype;
@@ -128,6 +130,15 @@ class Client_Controller extends Controller
         $unit->project_unit_size = $result->csize;
         $unit->project_unit_status = 'Available';
         $unit->save();
+
+        foreach ($images as $snapshot) {
+            $snapshot = $snapshot->image_name;
+            $record = new project_unit_snapshots();
+            File::copy(public_path("submitted_properties/$snapshot"), public_path("project/units/snapshots/$snapshot"));
+            $record->project_units_id = $unit->id;
+            $record->project_unit_snapshot_name = $snapshot;
+            $record->save();
+        }
 
         $record = submitted_property::find($id);
         $record->update([
