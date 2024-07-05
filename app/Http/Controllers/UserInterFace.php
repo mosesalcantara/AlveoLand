@@ -239,7 +239,6 @@ class UserInterFace extends Controller
             'f_name' => 'required',
             'l_name' => 'required',
             'age' => 'required',
-            'email' => 'required',
             'phone_num' => 'required',
             'message' => 'required',
         ];

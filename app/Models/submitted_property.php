@@ -11,9 +11,13 @@ class submitted_property extends Model
     protected $table = 'submitted_property';
     protected $fillable = [
         'client_id',
-        'cproject',
+        'property_id',
         'cunit_no',
         'cfor',
-        'cstatus'
+        'ccategory_description',
+        'ctype',
+        'cprice',
+        'csize',
+        'cstatus',
     ];
 }

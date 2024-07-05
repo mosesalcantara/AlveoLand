@@ -1,4 +1,41 @@
 function Submit_Property() {
+    $.ajax({
+        url: "/submit-client-property/get-projects",
+        type: 'POST',
+        success: function (res) {
+            var records = res
+            $.each(records, function(row, field) {
+                var option = $('<option>').text(field.project_name).val(field.id)
+                $("select[name=property_id]").append(option)
+            })
+            $("select[name=property_id]").val('')
+        },
+        error: function (res) {
+            console.log(res)
+        },
+    })    
+
+    $("select[name=purpose]").on( "change", function() {
+        var cat_des = "select[name=category_description]"
+        $(cat_des).empty()
+
+        var sale_opts = ["Pre-selling", "RFO"]
+        var lease_opts = ["Residential", "Commercial"]
+        
+        if ($(this).val() == 'Sale') {
+            for (var opt of sale_opts) {
+                var option = $('<option>').text(opt).val(opt)
+                $(cat_des).append(option)
+            }
+        }
+        else if ($(this).val() == 'Lease') {
+            for (var opt of lease_opts) {
+                var option = $('<option>').text(opt).val(opt)
+                $(cat_des).append(option)
+            }
+        }
+    })
+
     $("#client-form").submit(function (e) {
         e.preventDefault();
         $("#submit-btn").prop("disabled", true);
@@ -10,8 +47,9 @@ function Submit_Property() {
             contentType: false,
             processData: false,
             success: function (res) {
+                // console.log(res)
+
                 $("#submit-btn").prop("disabled", false);
-                console.log(res);
                 if (res.status == 200) {
                     $("#client-form")[0].reset();
                     // alert(res.message);

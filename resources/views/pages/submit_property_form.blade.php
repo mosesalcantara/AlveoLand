@@ -37,7 +37,7 @@
                                                 <label for="floatingInput">Contact</label>
                                             </div>
                                             <div class="form-floating mb-3 w-100">
-                                                <input type="text" name="email" class="form-control" id="floatingInput"
+                                                <input type="email" name="email" class="form-control" id="floatingInput"
                                                     placeholder="name@example.com">
                                                 <label for="floatingInput">Email</label>
                                             </div>
@@ -68,9 +68,10 @@
                                         <p>Property Information Form</p>
                                         <div class="d-flex">
                                             <div class="form-floating mb-3 me-3 w-100">
-                                                <input type="text" accept="image/*" name="project" class="form-control"
-                                                    id="floatingInput" placeholder="name@example.com">
-                                                <label for="floatingInput my-3">Project</label>
+                                                <select class="form-select" id="floatingSelect" name="property_id">
+
+                                                </select>
+                                                <label for="floatingSelect">Project</label>
                                             </div>
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="text" accept="image/*" name="unit_no" class="form-control"
@@ -88,6 +89,35 @@
                                             </div>
                                         </div>
                                         <div class="d-flex">
+                                            <div class="form-floating me-3 w-100">
+                                                <select class="form-select" name="category_description">
+                                                </select>
+                                                <label>Category</label>
+                                            </div>
+                                            <div class="form-floating me-3 w-100">
+                                                <select class="form-select" name="type">
+                                                    <option value="">Choose Type</option>
+                                                    <option value="Studio">Studio</option>
+                                                    <option value="1BR">1BR</option>
+                                                    <option value="2BR">2BR</option>
+                                                    <option value="3BR">3BR</option>
+                                                    <option value="PH">PH</option>
+                                                    <option value="Lot">Lot</option>
+                                                    <option value="H&L">H&L</option>
+                                                    <option value="Office">Office</option>
+                                                </select>
+                                                <label>Type</label>
+                                            </div>
+                                            <div class="form-floating mb-3 me-3 w-100">
+                                                <input type="text" name="price" class="form-control">
+                                                <label>Price</label>
+                                            </div>
+                                            <div class="form-floating mb-3 me-3 w-100">
+                                                <input type="text" name="size" class="form-control">
+                                                <label>Size</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex mt-3">
                                             <div class="form-floating mb-3 me-3 w-100">
                                                 <input type="file" accept="image/*" multiple name="images[]"
                                                     class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -112,6 +142,12 @@
     <script src="{{ asset('js/user/client.js') }}"></script>
     <script>
         $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+
             Submit_Property()
         });
     </script>

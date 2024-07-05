@@ -82,6 +82,7 @@ Route::get('/admin/property/index', [Routing::class, 'Property_Main']);
 Route::get('/admin/property/gallery', [Routing::class, 'Gallery']);
 Route::get('/admin/clients', [Client_Controller::class, 'GetAllRequest']);
 Route::get('/admin/clients/{id}', [Client_Controller::class, 'GetPropertyDetails']);
+Route::get('/admin/clients/approve/{id}', [Client_Controller::class, 'ApproveSubmission']);
 
 
 
@@ -186,6 +187,7 @@ Route::post('/newsletter/subscribe', [UserInterFace::class, 'Send_Subscription_M
 
 
 Route::post('/submit-client-property', [Client_Controller::class, 'Submit_Property']);
+Route::post('/submit-client-property/get-projects', [Client_Controller::class, 'GetProjects']);
 
 Route::get('/all-project-properties', [UserInterFace::class, 'All_Project_Properties']);
 
