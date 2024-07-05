@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
+use Mail;
+use App\Mail\UnitRegistration;
+
 class Client_Controller extends Controller
 {
     //
@@ -144,6 +147,12 @@ class Client_Controller extends Controller
         $record->update([
             'cstatus' => 'Available',
         ]);
+
+        $mail_data = [
+            'name' => $result->cfname . $result->clname,
+        ];
+
+        Mail::to($result->cemail)->send(new UnitRegistration($mail_data));
 
         return response()->json(['status' => 200, 'message' => 'Submitted Unit was Aprroved.']);
     }
