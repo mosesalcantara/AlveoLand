@@ -143,11 +143,10 @@ class Client_Controller extends Controller
             $record->save();
         }
 
-        $record = submitted_property::find($id);
-        $record->update([
+        $submitted_property = submitted_property::find($id);
+        $submitted_property->update([
             'cstatus' => 'Available',
         ]);
-        $record->save();
 
         $mail_data = [
             'name' => $result->cfname . $result->clname,
