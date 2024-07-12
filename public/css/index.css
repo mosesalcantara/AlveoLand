@@ -11,8 +11,14 @@
     width: 100%;
 }
 
-.index-size {
-    width: 99vw;
+.display-units {
+    height: 25rem;
+}
+
+@media (max-width: 576px) {
+    .display-units {
+        height: 20rem;
+    }
 }
 
 @media (min-width: 768px) {

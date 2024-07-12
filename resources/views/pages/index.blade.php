@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <div class="ps-lg-5 ">
         <div class="bg-light rounded-bottom">
-            <div class="row pt-5"></div>
-            <div class="row ps-5 index-size">
-                <div class="col-lg-4 px-lg-3 col-sm-12">
-                    <div class="d-sm-flex d-lg-block justify-content-center">
+            <div class="row pt-md-5 pt-3"></div>
+            <div class="row px-md-5 px-4 index-size">
+                <div class="col-lg-4 px-lg-3">
+                    <div class="d-flex d-lg-block justify-content-center">
                         <img src="https://www.alveoland.com.ph/static/alveo-land-home.svg" height="30" alt="">
                     </div>
-                    <div class="lh-1 d-sm-none d-lg-block">
+                    <div class="lh-1 d-none d-lg-block">
                         <p style="font-size:4rem"><span style=" color:rgb(9, 161, 255)">Innovating </span><span>the way you
                                 live</span></p>
                     </div>
@@ -33,7 +33,7 @@
                                     <div data-id="{{ $project->id }}"
                                         class="display-units carousel-item {{ $active }}"
                                         style='cursor:pointer;background: linear-gradient(to top, rgba(7, 148, 236, 0.9), rgba(255, 255, 255, 0.001)), url("{{ asset('project/snapshots') }}/{{ $project->project_banner }}");
-                                                                height:25rem; background-size:cover;'>
+                                                                background-size:cover;'>
                                         <br>
                                         <br>
                                         <br>
@@ -48,9 +48,9 @@
                                         <br>
                                         <br>
                                         <br>
-                                        <br>
-                                        <br>
-                                        <h1><span class="bg-light rounded-end  px-5 py-2"><i
+                                        <br class="d-md-block d-none">
+                                        <br class="d-md-block d-none">
+                                        <h1><span class="bg-light rounded-end  px-md-5 px-3 py-md-2 py-1"><i
                                                     class="fa-solid fa-location-dot text-danger"></i>
                                                 {{ $project->city }}</span></h1>
                                         <div class="featured-property-name  text-center text-light py-2 h5">
@@ -77,17 +77,16 @@
                     <form>
                         @csrf
                         <div class="bg-none">
-                            <div
-                                class="input-group input-group-md mb-3 border-secondary border-opacity-10 border-1 text-secondary">
+                            <div class="input-group input-group-md mb-3 border-secondary border-opacity-10 border-1 text-secondary">
                                 <select name="searchby" id=""
-                                    class="form-control w-25 border-secondary border-opacity-10 border-1 text-secondary"
+                                    class="form-control w-md-25 w-10 border-secondary border-opacity-10 border-1 text-secondary"
                                     style="outline: none">
                                     <option class="text-secondary p-3" value="">Search by</option>
                                     <option class="text-secondary p-3" value="city">City</option>
                                     <option class="text-secondary p-3" value="projectname">Project name</option>
                                 </select>
                                 <input name="tosearch" type="text"
-                                    class="form-control w-50 mr-2 border-secondary border-opacity-10 border-1"
+                                    class="form-control w-md-50 w-45 mr-2 border-secondary border-opacity-10 border-1"
                                     aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                                 <button type="submit" class="btn btn-secondary border-secondary fs-6">
                                     <div class="">
@@ -96,7 +95,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex mb-3">
                             <div class="m-1">
                                 <select name="type" class="form-control rounded-1 p-2 text-secondary me-3"
                                     id="">
@@ -120,7 +119,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="d-lg-block d-sm-none">
+                    <div class="d-lg-block d-none">
                         <p>
                             Alveo Land Corp. is the Philippines’ leading innovative developer of vibrant communities and
                             groundbreaking living solutions.
@@ -128,7 +127,7 @@
                         <a class="btn text-primary fs-6" href="/about">Find out more</a>
                     </div>
                 </div>
-                <div class="col-lg-8 col-sm-12 d-lg-block d-sm-none">
+                <div class="col-lg-8 col-12 d-lg-block d-none">
                     <div class="container my-3 mt-5" id="featureContainer">
                         <div class="row mx-auto my-auto justify-content-center">
                             <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">

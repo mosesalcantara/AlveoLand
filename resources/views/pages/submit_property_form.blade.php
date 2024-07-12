@@ -5,7 +5,7 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="container p-4">
+                <div class="container p-md-4 p-1">
                     <form id="client-form" enctype="multipart/form-data">
                         @csrf
                         <div class="row">

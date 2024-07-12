@@ -30,7 +30,7 @@
 
 
 
-    <div class="offcanvas offcanvas-end w-25" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+    <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header text-center">
 
@@ -148,13 +148,13 @@
         </div>
     </div>
 
-    <div id="navbar" class="navbar  w-100 ">
+    <div id="navbar" class="navbar w-100 ">
 
-        <button type="button" id="openNavigationMenu" class="btn d-sm-block d-lg-none text-white"><i
+        <button type="button" id="openNavigationMenu" class="btn d--block d-lg-none text-white"><i
                 class="fa-solid fa-bars"></i></button>
-        <button type="button" id="closeNavigationMenu" class="btn d-sm-none d-lg-none text-white"><i
+        <button type="button" id="closeNavigationMenu" class="btn d-none d-lg-none text-white"><i
                 class="fa-solid fa-xmark"></i></button>
-        <div id="mobileSizeNavigation" class="w-100 d-sm-none d-lg-none align-items-center justify-content-center">
+        <div id="mobileSizeNavigation" class="w-100 d-none d-lg-none align-items-center justify-content-center">
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <div class="mb-3">
@@ -186,6 +186,34 @@
                                             class="me-2 fa-solid fa-message"></i></span><span>Send us a
                                         message</span></a></li>
                         </ul>
+                    </div>
+
+                    <div class="mt-3 d-flex justify-content-center text-light">
+                        <a href="https://account.viber.com/en/login" class="me-2 nav-link  ">
+                            <abbr title="Viber">
+                                <h5><i class="me-2 fa-brands fa-viber"></i></h5>
+                            </abbr>
+                        </a>
+                        <a href="https://www.whatsapp.com/" class="me-2 nav-link ">
+                            <abbr title="Whatsapp">
+                                <h5><i class="fa-brands fa-whatsapp"></i></h5>
+                            </abbr>
+                        </a>
+                        <a href="https://web.telegram.org/" class="me-2 nav-link ">
+                            <abbr title="Telegram">
+                                <h5><i class="me-2 fa-brands fa-telegram"></i></h5>
+                            </abbr>
+                        </a>
+                        <a href="tel:09108707822" class="me-2 nav-link ">
+                            <abbr title="Call Us">
+                                <h5><i class="me-2 fa-solid fa-phone"></i></h5>
+                            </abbr>
+                        </a>
+                        <a href="https://www.facebook.com/messages/t/157361091935" class="me-2 nav-link ">
+                            <abbr title="Messenger">
+                                <h5><i class="me-2 fa-brands fa-facebook-messenger"></i></h5>
+                            </abbr>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -278,7 +306,7 @@
             @yield('schedule_viewing')
         </div>
 
-        <div class="container-fluid mt-5 py-4 px-5 footer">
+        <div class="container-fluid mt-5 py-4 px-md-5 px-4 footer">
             <div class="row w-100">
                 <div class="col-xxl-3">
                     <h2>Quick Links</h2>
@@ -392,20 +420,20 @@
                 $('#openNavigationMenu').click(function(e) {
                     e.preventDefault();
                     $('#logomobile').addClass('d-none')
-                    $('#closeNavigationMenu').removeClass('d-sm-none')
-                    $('#openNavigationMenu').removeClass('d-sm-block')
-                    $('#openNavigationMenu').addClass('d-sm-none')
-                    $('#mobileSizeNavigation').removeClass('d-sm-none')
+                    $('#closeNavigationMenu').removeClass('d-none')
+                    $('#openNavigationMenu').removeClass('d-block')
+                    $('#openNavigationMenu').addClass('d-none')
+                    $('#mobileSizeNavigation').removeClass('d-none')
                     // $('#openNavigationMenu').addClass('d-none')
 
                 });
                 $('#closeNavigationMenu').click(function(e) {
                     e.preventDefault();
                     $('#logomobile').removeClass('d-none')
-                    $('#closeNavigationMenu').addClass('d-sm-none')
-                    $('#openNavigationMenu').addClass('d-sm-block')
-                    $('#openNavigationMenu').removeClass('d-sm-none')
-                    $('#mobileSizeNavigation').addClass('d-sm-none')
+                    $('#closeNavigationMenu').addClass('d-none')
+                    $('#openNavigationMenu').addClass('d-block')
+                    $('#openNavigationMenu').removeClass('d-none')
+                    $('#mobileSizeNavigation').addClass('d-none')
 
                     // $('#openNavigationMenu').addClass('d-none')
 
