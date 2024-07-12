@@ -149,7 +149,7 @@ class Client_Controller extends Controller
         ]);
 
         $mail_data = [
-            'name' => $result->cfname . $result->clname,
+            'name' => $result->cfname . " " . $result->clname,
         ];
 
         Mail::to($result->cemail)->send(new UnitRegistration($mail_data));
