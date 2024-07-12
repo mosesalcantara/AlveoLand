@@ -147,6 +147,7 @@ class Client_Controller extends Controller
         $record->update([
             'cstatus' => 'Available',
         ]);
+        $record->save();
 
         $mail_data = [
             'name' => $result->cfname . $result->clname,
