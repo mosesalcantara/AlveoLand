@@ -143,8 +143,8 @@ class Client_Controller extends Controller
             $record->save();
         }
 
-        $submitted_property = submitted_property::find($id);
-        $submitted_property->update([
+        $record = submitted_property::find($result->submitted_id);
+        $record->update([
             'cstatus' => 'Available',
         ]);
 
